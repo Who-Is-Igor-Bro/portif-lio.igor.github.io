@@ -70,3 +70,50 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+
+h2{
+    font-size: 20px;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+}
+
+.carousel-images img {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 300px; /* Ajuste conforme necessário */
+    height: auto;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-indicators .indicator.active {
+    background-color: #333;
+}
