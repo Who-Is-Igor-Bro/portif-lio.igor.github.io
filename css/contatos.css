@@ -29,7 +29,10 @@ body {
 .menu {
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    background-color: #494846;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 20px;
 }
 
 .menu-item {
