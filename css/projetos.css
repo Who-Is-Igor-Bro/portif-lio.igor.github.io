@@ -28,7 +28,11 @@ body {
 
 .menu {
     display: flex;
-    gap: 15px;
+    justify-content: space-around;
+    background-color: #494846;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 20px;
 }
 
 .menu-item {
