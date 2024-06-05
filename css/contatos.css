@@ -17,6 +17,7 @@ body {
 .linear-container {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
     gap: 20px;
 }
 
@@ -24,7 +25,6 @@ body {
     background-color: #494846;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px;
 }
 
 .menu {
