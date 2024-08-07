@@ -1,0 +1,271 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #0a0a23;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 50px;
+    background-color: #141449;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #6200ea;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+.btn-contato {
+    font-size: 1.2em;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #000000;
+}
+
+.btn-portifolio {
+    font-size: 1.2em;
+    width: 100%;
+    height: 50px;
+}
+
+.programming-image {
+    width: 100%;
+    height: auto;
+}
+
+.programming-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.skills {
+    padding: 50px;
+    background-color: #141449;
+}
+
+.skills h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.skill-number {
+    width: 50px;
+    height: 50px;
+    background-color: #1d1a67;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.skill-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.skill-description {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.projects {
+    padding: 50px;
+    background-color: #1c1c3a;
+    text-align: left;
+}
+
+.projects h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color: #141449;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.project-details {
+    text-align: left;
+}
+
+.project-details h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.project-details p {
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6200ea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.project-link:hover {
+    background-color: #3700b3;
+}
+
+.contact {
+    padding: 50px;
+    background-color: #1c1c3a;
+    text-align: left;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.h1-card{
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.link-card {
+    color: #00A9FA;
+    text-decoration: none;
+}
+
+.link-card:hover {
+    text-decoration: underline;
+}
+
+
+.contact-card {
+    /*display: ;
+  /*  align-items: center;
+   /* justify-content: center;*/
+    background-color: #141449;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card p {
+    margin: 10px 0;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
+.highlights {
+    padding: 50px;
+    background-color: #1c1c3a;
+}
+
+.highlight {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.highlight img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.highlight h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .btn-contato, .btn-portifolio {
+        font-size: 1em;
+        height: 40px;
+    }
+
+    .skills h2, .projects h2, .contact h2 {
+        font-size: 2em;
+    }
+
+    .project-details h3 {
+        font-size: 1.2em;
+    }
+
+    .project-details p {
+        font-size: 1em;
+    }
+
+    .highlight img {
+        width: 60px;
+        height: 60px;
+    }
+}
