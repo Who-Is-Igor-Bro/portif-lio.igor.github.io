@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vemjá - DeliveryApp</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </noscript>
+  <!-- Estilos extras para o carrossel e descrição -->
+  <style>
+    .project-detail {
+      margin: 2rem 0;
+    }
+    .project-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      color: var(--text-primary);
+    }
+    /* Descrição com "Ler mais" */
+    .description {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: justify;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+    }
+    .read-more {
+      color: var(--primary-color);
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      text-align: right;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Carrossel de imagens */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 8px;
+    }
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .imgIcon {
+      width: 150px;
+      height: auto;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: var(--primary-color);">Voltar</a>
+      </div>
+    </nav>
+    <section class="project-detail">
+      <div class="project-header">    
+        <img class="imgIcon" src="imgs/vemjaIcon.png" alt="Ícone do VemJa">
+        <h1>VemJá</h1>
+      </div>
+
+      <div class="description">
+        <p id="project-description">
+          <strong>VemJá</strong> é uma plataforma de delivery especializada em sorvetes e açaís, projetada para oferecer uma experiência de compra e venda simplificada e eficiente.
+          <span id="dots">...</span>
+        </p>
+        <div id="more" style="display: none;">
+            
+<p> Com um sistema próprio desenvolvido para atender às necessidades específicas desse mercado, a plataforma garante agilidade, segurança e conveniência tanto para os clientes quanto para os estabelecimentos parceiros.</p>
+<h2>Sistema de Pedidos Integrado</h2>
+<p>O <strong>VemJá</strong> conta com um sistema de pedidos totalmente integrado, que permite aos usuários realizar compras de forma rápida e intuitiva. A plataforma oferece uma interface amigável, com opções de personalização de produtos, como escolha de sabores, coberturas e acompanhamentos, garantindo que cada pedido seja único e adaptado às preferências do cliente.</p>
+<h2>Programa de Fidelidade e Promoções Personalizadas</h2>
+<p>Para engajar os clientes e fomentar a fidelidade, o <strong>VemJá</strong> conta com um programa de recompensas que oferece pontos a cada compra, que podem ser trocados por descontos ou produtos gratuitos. Além disso, a plataforma utiliza inteligência artificial para analisar o comportamento de compra dos usuários e oferecer promoções personalizadas, aumentando a satisfação e a taxa de retenção.</p>
+
+<h2>Principais Benefícios:</h2>
+<ul>
+  <li><strong>Experiência de Compra Personalizada:</strong> Interface intuitiva com opções de customização de produtos.</li>
+  <li><strong>Segurança nas Transações:</strong> Criptografia avançada e múltiplas opções de pagamento.</li>
+  <li><strong>Engajamento e Fidelização:</strong> Programa de recompensas e promoções personalizadas.</li>
+</ul>
+        </div>
+        <p class="read-more" onclick="toggleReadMore()">Ler mais</p>
+      </div>
+      
+      <!-- Carrossel de imagens -->
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-images">
+          <img src="imgs/vemja1.jpg" alt="Tela inicial do VemJa">
+          <img src="imgs/vemja2.jpg" alt="Menu do vemJa">
+          <img src="imgs/vemja3.jpg" alt="painel de administração vemja">          
+        </div>
+        <div class="carousel-controls">
+          <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+          <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Botão de Download -->
+      <div style="text-align: center; margin-top: 2rem;">
+        <a class="cta-button">Plataforma não disponível!</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Função para expandir/recolher a descrição
+    function toggleReadMore() {
+      const dots = document.getElementById("dots");
+      const moreText = document.getElementById("more");
+      const btnText = document.querySelector(".read-more");
+
+      if (moreText.style.display === "none") {
+        // Expande a descrição
+        moreText.style.display = "block";
+        dots.style.display = "none";
+        btnText.textContent = "Ler menos";
+      } else {
+        // Recolhe a descrição
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        btnText.textContent = "Ler mais";
+      }
+    }
+
+    // Funcionalidade do carrossel
+    const carouselImages = document.getElementById('carousel-images');
+    const images = carouselImages.querySelectorAll('img');
+    let currentIndex = 0;
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carouselImages.style.transform = 'translateX(' + offset + '%)';
+    }
+  </script>
+</body>
+</html>

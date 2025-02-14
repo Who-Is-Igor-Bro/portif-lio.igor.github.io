@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igor Junior de Freitas - Desenvolvedor mobile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+     <script>
+        function abrirPagina(nomeArquivo, tituloPagina) {
+            document.title = tituloPagina;
+            window.location.href = nomeArquivo;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">Igor Junior de Freitas</div>
+            <div class="nav-links">
+                <a href="#skills">Habilidades</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Desenvolvedor Android & Segurança</h1>
+                <h2>Especialista em Aplicações Seguras</h2>
+                <p>Desenvolvo soluções móveis com foco em segurança digital, implementando criptografia avançada e boas práticas de proteção de dados.</p>
+                <a href="#projetos" class="cta-button">Ver Portfólio</a>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <h3>Tecnologias Principais</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-android fa-3x android-color"></i>
+                    <p>Android SDK</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-shield-alt fa-3x security-color"></i>
+                    <p>Criptografia</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-google fa-3x firebase-color"></i>
+                    <p>Firebase</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database fa-3x sql-color"></i>
+                    <p>NoSql</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code-branch fa-3x realm-color"></i>
+                    <p>APIs</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-mobile-alt fa-3x"></i>
+                    <p>XML</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projetos">
+            <h3>Projetos de Segurança</h3>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4 class="security-color">HuHu-Secure</h4>
+                    <p>Aplicativo de gerenciamento de senhas baseado nas wallets de criptomoedas.</p>
+                    <div class="tech-tags">
+                        <span class="java-color">Java</span>
+                        <span class="security-color">Android Security</span>
+                        <span class="firebase-color">FireBase Real Time Database</span>
+                    </div>
+                    <a onclick="abrirPagina('huhu-secure.html', 'Huhu Secure')" class="cta-button-projetc">Ver Detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h4 class="firebase-color">SecureStorage</h4>
+                    <p>O SecureStorage é um sistema Android que utiliza SharedPreferences e o Android Keystore para armazenar dados de forma segura.</p>
+                    <div class="tech-tags">
+                        <span class="java-color">Java</span>
+                        <span class="security-color">KeyStore</span>
+                        <span class="kotlin-color">AES-256/GCM</span>
+                    </div>
+                    <a onclick="abrirPagina('secure-storage.html', 'Secure Storage')" class="cta-button-projetc">Ver Detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h4 class="realm-color">VemJá</h4>
+                    <p>É um aplicativo de delivery focado especialmente nas sorveteris e açaiterias.</p>
+                    <div class="tech-tags">
+                        <span class="java-color">Java</span>
+                        <span class="firebase-color">Firebase Real Time Data Base</span>
+                        <span class="security-color">Android Security</span>
+                    </div>
+                    <a onclick="abrirPagina('vem-ja.html', 'VemJa')" class="cta-button-projetc">Ver Detalhes</a>
+                </div>
+            </div>
+        </section>
+
+       <section class="contact" id="contato">
+  <h3>Vamos Conectar?</h3>
+  <div class="social-links">
+    <!-- Link para abrir o cliente de e-mail -->
+    <a href="mailto: igorjuniordefreitas@gmail.com" title="Email">
+      <i class="far fa-envelope"></i>
+    </a>
+    <!-- Link para abrir o WhatsApp (use o número no formato internacional, sem zeros ou sinais de +) -->
+    <a href="https://wa.me/554488430517" title="WhatsApp" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</section>
+    </div>
+ <!---   <script src="js/main.js" defer></script> -->
+</body>
+</html>

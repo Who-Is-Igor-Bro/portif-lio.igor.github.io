@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HuhuSecure - Projeto Seguro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </noscript>
+  <!-- Estilos extras para o carrossel e descrição -->
+  <style>
+    .project-detail {
+      margin: 2rem 0;
+    }
+    .project-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .project-header h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      color: var(--text-primary);
+    }
+    /* Descrição com "Ler mais" */
+    .description {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: justify;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+    }
+    .read-more {
+      color: var(--primary-color);
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      text-align: right;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Carrossel de imagens */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 8px;
+    }
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .imgIcon {
+      width: 150px;
+      height: auto;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: var(--primary-color);">Voltar</a>
+      </div>
+    </nav>
+    <section class="project-detail">
+      <div class="project-header">       
+        <img class="imgIcon" src="imgs/huhuicon.png" alt="Ícone do HuHu Secure">
+        <h1>HuHu-Secure</h1>
+      </div>
+
+      <div class="description">
+        <p id="project-description">
+          HuHu-Secure é um app de gerenciamento de senhas baseado nas wallest de criptomoedas, com alta segurança e criptografia
+          <span id="dots">...</span>
+        </p>
+        <div id="more" style="display: none;">
+          <p><strong>HuHu Secure</strong> é um aplicativo de gerenciamento de senhas altamente seguro, que utiliza a mais recente tecnologia de criptografia para proteger os dados sensíveis dos usuários. Com um enfoque em garantir a segurança e privacidade, o sistema foi desenvolvido com base em técnicas de criptografia avançadas, como <strong>AES-GCM</strong>, e práticas seguras de armazenamento, inspiradas nas melhores soluções de segurança digital, como aquelas aplicadas em <strong>wallets de criptomoedas</strong>.</p>
+
+          <h2>Criptografia e Armazenamento Seguro</h2>
+          <p>O <strong>HuHu Secure</strong> utiliza o <strong>Android Keystore</strong> para proteger as chaves de criptografia de maneira que nunca deixam o dispositivo, garantindo que essas chaves nunca sejam acessadas ou exportadas por ninguém, nem mesmo pelo próprio aplicativo. A chave de criptografia utilizada no processo é gerada de forma única e protegida dentro do hardware do dispositivo, e a criptografia emprega o algoritmo <strong>AES-GCM</strong> com chaves de 256 bits, que fornece não apenas sigilo, mas também a integridade dos dados.</p>
+
+          <h2>Criptografia de Dados com AES-GCM</h2>
+          <p>Ao criptografar os dados, como senhas e informações sensíveis do usuário, o sistema utiliza um <strong>vetor de inicialização (IV)</strong> único para cada operação de criptografia. Esse vetor, juntamente com os dados criptografados, é armazenado em formato Base64, garantindo que apenas o usuário com a chave correta possa descriptografar os dados. Além disso, ao utilizar o <strong>AES-GCM</strong>, o aplicativo assegura a integridade dos dados e protege contra ataques de modificação de dados.</p>
+
+          <h2>Proteção de Senhas com Derivação de Chave</h2>
+          <p><strong>HuHu Secure</strong> também oferece um método alternativo de criptografia usando uma senha fornecida pelo próprio usuário. Ao invés de depender de uma chave estática, a senha do usuário é convertida em uma chave de 256 bits através do algoritmo <strong>PBKDF2-HMAC-SHA256</strong>, com um <strong>salt</strong> aleatório gerado para dificultar ataques de dicionário e força bruta. Este processo é realizado por <strong>100.000 iterações</strong>, o que torna extremamente difícil a extração da chave, mesmo que um atacante tenha acesso aos dados criptografados.</p>
+
+          <h2>Geração de Chave Única e Dinâmica</h2>
+          <p>Uma das principais características de segurança do <strong>HuHu Secure</strong> é a geração dinâmica de uma chave única de acesso. Essa chave é criada a partir de informações exclusivas do dispositivo, como seu ID único, combinado com um <strong>salt complexo</strong> gerado aleatoriamente. Isso elimina a necessidade de armazenamento de chaves em qualquer banco de dados ou servidor, o que torna a solução muito mais segura contra vazamentos de dados. O uso de <strong>SHA-512</strong> para gerar um hash seguro do identificador e salt, juntamente com o uso de <strong>SecureRandom</strong> para aumentar a aleatoriedade, assegura que a chave seja exclusiva e difícil de prever.</p>
+
+          <h2>Armazenamento Seguro no SharedPreferences</h2>
+          <p>Os dados sensíveis do usuário são armazenados no <strong>SharedPreferences</strong>, mas antes de serem salvos, são criptografados com o uso das técnicas de segurança descritas. Isso significa que, mesmo que alguém consiga acessar os arquivos de <strong>SharedPreferences</strong>, os dados estarão protegidos por criptografia forte. Não há armazenamento de informações sensíveis em texto puro, como senhas ou a chave única de acesso do usuário, garantindo que os dados estejam sempre seguros.</p>
+
+          <h2>Principais Benefícios de Segurança:</h2>
+          <ul>
+            <li><strong>Chaves de Criptografia Armazenadas de Forma Segura:</strong> Utiliza o <strong>Android Keystore</strong>, garantindo que as chaves de criptografia não sejam acessíveis ou exportáveis.</li>
+            <li><strong>Criptografia de Ponta com AES-GCM:</strong> Garante sigilo e integridade dos dados, com autenticação e proteção contra modificações.</li>
+            <li><strong>Proteção contra Força Bruta e Ataques de Dicionário:</strong> Usa o <strong>PBKDF2-HMAC-SHA256</strong> com <strong>salt aleatório</strong> e <strong>múltiplas iterações</strong> para proteger as senhas.</li>
+            <li><strong>Geração de Chave Única e Dinâmica:</strong> Não armazena chaves de acesso, usando um processo seguro e único para cada usuário.</li>
+            <li><strong>Armazenamento Criptografado no SharedPreferences:</strong> Todos os dados sensíveis são criptografados antes de serem armazenados, garantindo que nada seja salvo em texto simples.</li>
+          </ul>
+        </div>
+        <p class="read-more" onclick="toggleReadMore()">Ler mais</p>
+      </div>
+      
+      <!-- Carrossel de imagens -->
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-images">
+          <img src="imgs/imgHuhu1.jpg" alt="Tela inicial do HuhuSecure">
+          <img src="imgs/imgHuhu2.jpg" alt="Funcionalidade de autenticação">
+          <img src="imgs/imgHuhu3.jpg" alt="Chave de acesso">
+          <img src="imgs/imgHuhu4.jpg" alt="Preview das configurações">
+        </div>
+        <div class="carousel-controls">
+          <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+          <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Botão de Download -->
+      <div style="text-align: center; margin-top: 2rem;">
+        <a class="cta-button">Disponível em breve!</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Função para expandir/recolher a descrição
+    function toggleReadMore() {
+      const dots = document.getElementById("dots");
+      const moreText = document.getElementById("more");
+      const btnText = document.querySelector(".read-more");
+
+      if (moreText.style.display === "none") {
+        // Expande a descrição
+        moreText.style.display = "block";
+        dots.style.display = "none";
+        btnText.textContent = "Ler menos";
+      } else {
+        // Recolhe a descrição
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        btnText.textContent = "Ler mais";
+      }
+    }
+
+    // Funcionalidade do carrossel
+    const carouselImages = document.getElementById('carousel-images');
+    const images = carouselImages.querySelectorAll('img');
+    let currentIndex = 0;
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carouselImages.style.transform = 'translateX(' + offset + '%)';
+    }
+  </script>
+</body>
+</html>
