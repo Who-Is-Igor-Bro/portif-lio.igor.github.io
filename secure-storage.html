@@ -3,71 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secure Storage - Meus Códigos</title>
+  <title>Secure Storage - Armazenamento Seguro</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-    
-  <style>
-    /* Área de exibição do código e elementos relacionados */
-    .code-display {
-      margin: 2rem 0;
-    }
-    .file-name {
-      font-size: 1.2rem;      
-      color: var(--primary-color);
-      margin-bottom: 0.3rem;
-    }
-    .file-description {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-    /* Container que envolve o código */
-    .code-container {
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 1rem;
-      background-color: #282a36; /* Garantir fundo escuro */
-    }
-    .copy-button {
-      display: inline-block;
-      background-color: transparent;
-      color: var(--primary-color);
-      border: 2px solid var(--primary-color);
-      padding: clamp(0.5rem, 2vw, 1rem);
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      cursor: pointer;
-    }
-    .copy-button:hover {
-      background-color: rgba(61, 220, 132, 0.1);
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </noscript>
 </head>
 <body>
   <div class="container">
-    <!-- Barra de navegação -->
     <nav>
       <div class="logo">
-        <a href="index.html" style="text-decoration: none; color: var(--primary-color);">Voltar</a>
+        <a href="index.html" class="nav-links">Voltar</a>
       </div>
     </nav>
 
-    <!-- Seção de exibição do código -->
-    <section class="code-display">
-      <!-- Nome do arquivo -->
-      <div class="file-name">SecureStorage.java</div>
-      <!-- Descrição abaixo do nome do arquivo -->
-      <div class="file-description">
-       O SecureStorage é um sistema que utiliza SharedPreferences e o Android Keystore para armazenar dados de forma segura. Ele criptografa informações com o algoritmo AES-256/GCM, garantindo confidencialidade e integridade. A chave de criptografia é gerada e protegida pelo Keystore, enquanto os dados criptografados são armazenados no SharedPreferences. O sistema oferece métodos para salvar, recuperar, remover e limpar dados, sendo ideal para proteger informações sensíveis, como credenciais ou tokens, em aplicativos Android.
+    <section class="project-detail">
+      <div class="project-header">             
+        <h1>Secure Storage</h1>
+        <div class="tech-tags">
+          <span class="java-color">Java</span>
+          <span class="security-color">Android Keystore</span>
+          <span class="kotlin-color">AES-256/GCM</span>
+        </div>
       </div>
+
+      <div class="code-content">
+        <div class="code-description">
+          <p class="excerpt">Sistema de armazenamento seguro utilizando Android Keystore e SharedPreferences com criptografia AES-256/GCM.<span class="dots">...</span></p>
           
-      <div class="code-container">
-        <pre><code class="language-java">
+          <div class="full-description">
+            <p>Implementação de armazenamento seguro para dados sensíveis em Android usando:</p>
+            <ul>
+              <li>Android Keystore para proteção de chaves criptográficas</li>
+              <li>Algoritmo AES-256/GCM para criptografia autenticada</li>
+              <li>Armazenamento seguro em SharedPreferences</li>
+              <li>Gerenciamento completo do ciclo de vida das chaves</li>
+            </ul>
+          </div>
+          <button class="read-more" onclick="toggleReadMore()">
+            <span>Ler mais</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">
+            <span class="file-name">SecureStorage.java</span>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="far fa-copy"></i>
+            </button>
+          </div>
+          <pre class="line-numbers"><code class="language-java">
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
@@ -117,7 +106,6 @@ public class SecureStorage {
                 keyGenerator.generateKey();
             }
         } catch (Exception e) {
-            //Logger.logError("SecureStorage", "Erro ao iniciar KeyStore.", e);
             throw new SecurityException("Erro ao inicializar o Android Keystore.", e);
         }
     }
@@ -175,7 +163,6 @@ public class SecureStorage {
             editor.putString(key, encryptedValue);
             editor.apply();
         } catch (Exception e) {
-           // Logger.logError("SecureStorage", "Erro ao armazenar dados de forma segura.", e);
             throw new SecurityException("Erro ao armazenar dados de forma segura.", e);
         }
     }
@@ -195,7 +182,6 @@ public class SecureStorage {
 
             return decrypt(encryptedValue);
         } catch (Exception e) {
-           // Logger.logError("SecureStorage", "Erro ao recuperar dados.", e);
             throw new SecurityException("Erro ao recuperar dados de forma segura.", e);
         }
     }
@@ -214,15 +200,21 @@ public class SecureStorage {
 
     public boolean contains(String key) {
         SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        boolean contains = preferences.contains(key);
-        return contains;
+        return preferences.contains(key);
     }
 }
-    </code></pre>
-      </div>
-      <div class="file-name">Como usar:</div>
-      <pre><code class="language-java">
-          // Inicialização
+          </code></pre>
+        </div>
+
+        <div class="code-section">
+          <div class="code-header">
+            <span class="file-name">Exemplo de Uso</span>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="far fa-copy"></i>
+            </button>
+          </div>
+          <pre class="line-numbers"><code class="language-java">
+// Inicialização
 SecureStorage secureStorage = new SecureStorage(context);
 
 // Salvando dados
@@ -236,25 +228,49 @@ secureStorage.removeSecureData("usuario");
 
 // Limpando todos os dados
 secureStorage.clearSecureData();
- </code></pre>
-      
-     
-      <button class="copy-button" onclick="copyCode()">Copiar Código</button>
+          </code></pre>
+        </div>
+      </div>
     </section>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
   <script>
+    // Função para expandir/recolher a descrição
+    function toggleReadMore() {
+      const container = document.querySelector('.code-description');
+      const fullDesc = container.querySelector('.full-description');
+      const dots = container.querySelector('.dots');
+      const btn = container.querySelector('.read-more');
 
-    function copyCode() {
-      const codeText = document.querySelector('.code-container pre').innerText;
-      navigator.clipboard.writeText(codeText).then(() => {
-        alert('Código copiado com sucesso!');
-      }).catch((err) => {
-        alert('Erro ao copiar o código: ' + err);
-      });
+      if (fullDesc.style.display === "none" || fullDesc.style.display === "") {
+        // Expande a descrição
+        fullDesc.style.display = "block";
+        dots.style.display = "none";
+        btn.innerHTML = '<span>Ler menos</span><i class="fas fa-chevron-up"></i>';
+      } else {
+        // Recolhe a descrição
+        fullDesc.style.display = "none";
+        dots.style.display = "inline";
+        btn.innerHTML = '<span>Ler mais</span><i class="fas fa-chevron-down"></i>';
+      }
+    }
+
+    // Função para copiar código
+    async function copyCode(button) {
+      const code = button.parentElement.nextElementSibling.innerText;
+      try {
+        await navigator.clipboard.writeText(code);
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+          button.innerHTML = '<i class="far fa-copy"></i>';
+        }, 2000);
+      } catch (err) {
+        alert('Erro ao copiar: ' + err);
+      }
     }
   </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
 </body>
 </html>

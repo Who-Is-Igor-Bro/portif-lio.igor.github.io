@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-     <script>
+    <script>
         function abrirPagina(nomeArquivo, tituloPagina) {
             document.title = tituloPagina;
             window.location.href = nomeArquivo;
@@ -15,6 +15,7 @@
     </script>
 </head>
 <body>
+    <canvas id="particles-canvas" style="position: absolute; top: 0; left: 0; z-index: 0;"></canvas>
     <div class="container">
         <nav>
             <div class="logo">Igor Junior de Freitas</div>
@@ -28,7 +29,9 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Desenvolvedor Android & Segurança</h1>
-                <h2>Especialista em Aplicações Seguras</h2>
+                <h2 class="animated-subtitle">Especialista em 
+                    <span class="typing" data-words='["Segurança Digital", "Criptografia", "Proteção de Dados", "Android SDK"]'></span>
+                </h2>
                 <p>Desenvolvo soluções móveis com foco em segurança digital, implementando criptografia avançada e boas práticas de proteção de dados.</p>
                 <a href="#projetos" class="cta-button">Ver Portfólio</a>
             </div>
@@ -50,7 +53,7 @@
                     <p>Firebase</p>
                 </div>
                 <div class="skill-item">
-                    <i class="fas fa-database fa-3x sql-color"></i>
+                    <i class="fas fa-file-code fa-3x sql-color"></i>
                     <p>NoSql</p>
                 </div>
                 <div class="skill-item">
@@ -100,20 +103,159 @@
             </div>
         </section>
 
-       <section class="contact" id="contato">
-  <h3>Entre em contato!</h3>
-  <div class="social-links">
-    <!-- Link para abrir o cliente de e-mail -->
-    <a href="mailto: igorjuniordefreitas@gmail.com" title="Email">
-      <i class="far fa-envelope"></i>
-    </a>
-    <!-- Link para abrir o WhatsApp (use o número no formato internacional, sem zeros ou sinais de +) -->
-    <a href="https://wa.me/554488430517" title="WhatsApp" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-</section>
+        <section class="contact" id="contato">
+            <h3>Entre em contato!</h3>
+            <div class="social-links">
+                <a href="mailto: igorjuniordefreitas@gmail.com" title="Email">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/554488430517" title="WhatsApp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </section>
     </div>
- <!---   <script src="js/main.js" defer></script> -->
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+    particlesJS('particles-canvas', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#3DDC84"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#8892b0",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 3,
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 200,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+ document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.typing');
+            elements.forEach(el => {
+                const words = JSON.parse(el.getAttribute('data-words'));
+                let counter = 0;
+                
+                function type() {
+                    const word = words[counter % words.length];
+                    el.textContent = '';
+                    
+                    for(let i = 0; i < word.length; i++) {
+                        setTimeout(() => {
+                            el.textContent += word[i];
+                            if(i === word.length - 1) setTimeout(erase, 2000);
+                        }, 100 * i);
+                    }
+                    
+                    counter++;
+                }
+                
+                function erase() {
+                    const length = el.textContent.length;
+                    for(let i = 0; i < length; i++) {
+                        setTimeout(() => {
+                            el.textContent = el.textContent.slice(0, -1);
+                            if(i === length - 1) type();
+                        }, 50 * i);
+                    }
+                }
+                
+                type();
+            });
+        });
+    </script>
 </body>
 </html>
