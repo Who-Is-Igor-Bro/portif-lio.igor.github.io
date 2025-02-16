@@ -189,15 +189,11 @@ nav {
     background-color: var(--card-bg);
     padding: 2rem 1.5rem;
     border-radius: 10px;
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: rotateX(5deg) rotateY(5deg) translateY(-10px);
-    box-shadow: 0 25px 45px rgba(61, 220, 132, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Efeito de sombra suave */
 }
 
 .project-card::after {
@@ -327,7 +323,7 @@ nav {
     }
 }
 
-/* Detalhe dos projetos */
+/* Project Detail Styles */
 .project-detail {
   margin: 4rem 0;
 }
@@ -388,7 +384,7 @@ nav {
 .carousel-container {
   position: relative;
   max-width: 800px;
-  height: 500px; 
+  height: 500px; /* Altura fixa para o container */
   margin: 3rem auto;
   border-radius: 10px;
   overflow: hidden;
@@ -396,7 +392,7 @@ nav {
 
 .carousel-track {
   display: flex;
-  height: 100%; 
+  height: 100%; /* Usa 100% da altura do container */
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -489,7 +485,7 @@ nav {
   transform: translateY(-2px);
 }
 
-/* Parte do secureStorage */
+/* Secure Storage Specific */
 .code-content {
   max-width: 1000px;
   margin: 2rem auto;
